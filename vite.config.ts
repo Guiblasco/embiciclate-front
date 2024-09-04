@@ -9,7 +9,17 @@ export default defineConfig({
     setupFiles: ["./src/setupTests.ts"],
     environment: "jsdom",
     coverage: {
-      include: ["src/**/*.tsx", "!src/main.tsx", "!src/**/types.ts"],
+      provider: "v8",
+      reporter: ["lcov", "text"],
+      all: true,
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: [
+        "**/*.test.{ts,tsx}",
+        "**/types.ts",
+        "**/*.d.ts",
+        "src/main.tsx",
+        "src/components/App/App.tsx",
+      ],
     },
   },
   plugins: [react()],
