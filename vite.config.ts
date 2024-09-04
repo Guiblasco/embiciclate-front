@@ -6,6 +6,8 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   test: {
     globals: true,
+    setupFiles: ["./src/setupTests.ts"],
+    environment: "jsdom",
   },
   plugins: [react()],
 });
