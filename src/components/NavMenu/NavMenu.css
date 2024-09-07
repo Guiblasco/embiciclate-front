@@ -1,6 +1,7 @@
 .navigation-links {
   display: flex;
   justify-content: space-between;
+  width: 85%;
 }
 
 .navigation-links__link {
