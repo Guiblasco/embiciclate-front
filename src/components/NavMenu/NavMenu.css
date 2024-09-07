@@ -1,0 +1,16 @@
+.navigation-links {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.navigation-links__link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.navigation-links__link--active {
+  color: var(--button-info-color);
+  border-bottom: 3px solid var(--button-info-color);
+}

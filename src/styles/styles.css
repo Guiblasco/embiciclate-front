@@ -29,3 +29,8 @@ body {
   color: var(--main-color);
   margin: 0;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
