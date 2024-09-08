@@ -14,7 +14,7 @@ const NavMenu = (): React.ReactElement => {
         Bicis
       </NavLink>
       <NavLink
-        to={"/añadir"}
+        to={"/add"}
         className={({ isActive }) =>
           `navigation-links__link ${isActive ? "navigation-links__link--active" : ""}`
         }
