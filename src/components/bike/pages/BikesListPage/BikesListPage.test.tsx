@@ -4,15 +4,15 @@ import BikesListPage from "./BikesListPage";
 describe("Given the BikesListPage component", () => {
   describe("When it is rendered", () => {
     test("Then it should show 'Lista de bicis' in a heading", () => {
-      const BikesListPageRegExp = new RegExp(/lista de bicis/, "i");
+      const bikesListPageRegExp = new RegExp(/lista de bicis/, "i");
 
       render(<BikesListPage />);
 
-      const BikesListPageTitle = screen.getByRole("heading", {
-        name: BikesListPageRegExp,
+      const bikesListPageTitle = screen.getByRole("heading", {
+        name: bikesListPageRegExp,
       });
 
-      expect(BikesListPageTitle).toBeInTheDocument();
+      expect(bikesListPageTitle).toBeInTheDocument();
     });
   });
 });
