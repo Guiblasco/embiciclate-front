@@ -11,7 +11,7 @@ describe("Given the Header component", () => {
         </MemoryRouter>,
       );
 
-      const headerTitle = screen.getByRole("generic", { name: /embiciclate/i });
+      const headerTitle = screen.getByText(/embiciclate/i);
 
       expect(headerTitle).toBeInTheDocument();
     });

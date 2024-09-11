@@ -5,9 +5,7 @@ import NavMenu from "../NavMenu/NavMenu";
 const Header = (): React.ReactElement => {
   return (
     <header className="main-header">
-      <span className="main-title" aria-label="embiciclate">
-        Embiciclate
-      </span>
+      <span className="main-title">Embiciclate</span>
       <NavMenu />
     </header>
   );
