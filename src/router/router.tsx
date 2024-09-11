@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import App from "../components/App/App";
 import { NotFoundPage } from "../pages/NotFoundPage";
-import BikesListPage from "../components/bike/pages/BikesListPage/BikesListPage";
-import BikesFormPage from "../components/bike/pages/BikeFormPage/BikeFormPage";
+import BikesListPage from "../bike/pages/BikesListPage/BikesListPage.js";
+import BikesFormPage from "../bike/pages/BikeFormPage/BikeFormPage.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
