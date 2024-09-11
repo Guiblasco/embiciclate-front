@@ -1,7 +1,7 @@
 import "./BikesListPage.css";
 
 const BikesListPage = (): React.ReactElement => {
-  return <h2 className="subtitle">Lista de bicis</h2>;
+  return <h1 className="page-title">Lista de bicis</h1>;
 };
 
 export default BikesListPage;
