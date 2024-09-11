@@ -1,7 +1,7 @@
 import "./BikeFormPage.css";
 
 const BikesFormPage = (): React.ReactElement => {
-  return <h2 className="subtitle">Crear una bici</h2>;
+  return <h1 className="page-title">Crear una bici</h1>;
 };
 
 export default BikesFormPage;
