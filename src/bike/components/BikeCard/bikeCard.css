@@ -1,0 +1,11 @@
+.bike {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bike__container {
+  padding: 10px 0;
+  display: flex;
+  gap: 8px;
+}
