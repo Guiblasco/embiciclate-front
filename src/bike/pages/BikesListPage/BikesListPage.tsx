@@ -1,7 +1,11 @@
 import "./BikesListPage.css";
 
 const BikesListPage = (): React.ReactElement => {
-  return <h1 className="page-title">Lista de bicis</h1>;
+  return (
+    <main className="page-container">
+      <h1 className="page-container__title">Lista de bicis</h1>
+    </main>
+  );
 };
 
 export default BikesListPage;

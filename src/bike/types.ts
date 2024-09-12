@@ -7,6 +7,7 @@ export interface Bike {
   specs: string;
   imageUrl: string;
   alternativeText: string;
+  mode: string;
 }
 
 export interface BikeDto extends Bike {
