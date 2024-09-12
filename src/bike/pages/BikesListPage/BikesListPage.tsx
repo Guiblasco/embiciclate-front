@@ -1,4 +1,3 @@
-import BikeCard from "../../components/BikeCard/BikeCard";
 import "./BikesListPage.css";
 
 const BikesListPage = (): React.ReactElement => {
