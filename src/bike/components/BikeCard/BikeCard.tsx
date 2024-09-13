@@ -11,11 +11,17 @@ const BikeCard = ({
 }: BikeCardProps): React.ReactElement => {
   return (
     <article className="bike">
-      <img src={imageUrl} alt={alternativeText} width={330} height={220} />
-      <div className="bike__container">
-        <span className="bike__brand">{brand} |</span>
-        <span className="bike__model">{model} |</span>
-        <span className="bike__mode">{mode}</span>
+      <img
+        className="bike__image"
+        src={imageUrl}
+        alt={alternativeText}
+        width={330}
+        height={185}
+      />
+      <div className="bike__information">
+        <h2 className="bike__brand">{brand} |</h2>
+        <h2 className="bike__model">{model} |</h2>
+        <h2 className="bike__mode">{mode}</h2>
       </div>
     </article>
   );
