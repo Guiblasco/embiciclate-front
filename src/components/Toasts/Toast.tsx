@@ -10,7 +10,9 @@ function Toast() {
 
   return (
     <div>
-      <button hidden={true} onClick={notify}></button>
+      <button hidden={true} onClick={notify}>
+        Notificame
+      </button>
 
       <ToastContainer />
     </div>
