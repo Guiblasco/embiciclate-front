@@ -1,22 +1,27 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import "./BikesListPage.css";
 import { BikeClient } from "../../api/BikesClient";
-import { Bike } from "../../types";
 import BikeList from "../../components/BikeList/BikeList";
+import useAppStore from "../../../store/useAppStore";
 
 const BikesListPage = (): React.ReactElement => {
   const bikeClient = useMemo(() => new BikeClient(), []);
 
-  const [bikes, setBikes] = useState<Bike[]>([]);
+  const { bikes, loadBikes } = useAppStore();
 
   useEffect(() => {
     const fetchbikes = async () => {
-      const apiBikes = await bikeClient.getBikes();
-      setBikes(apiBikes);
+      try {
+        const apiBikes = await bikeClient.getBikes();
+
+        loadBikes(apiBikes);
+      } catch (error) {
+        throw new Error(`No ha sido posible cargar las bicis ${error}`);
+      }
     };
 
     fetchbikes();
-  }, [bikeClient]);
+  }, [loadBikes, bikeClient]);
 
   return (
     <main className="page-container">
