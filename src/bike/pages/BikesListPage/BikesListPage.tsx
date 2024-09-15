@@ -38,7 +38,7 @@ const BikesListPage = (): React.ReactElement => {
     <main className="page-container">
       <h1 className="page-container__title">Lista de bicis</h1>
       {isLoading ? (
-        <MoonLoader color="#334e31" size={85} speedMultiplier={0.5} />
+        <MoonLoader className="spinner" speedMultiplier={0.5} />
       ) : (
         <BikeList bikes={bikes} />
       )}
