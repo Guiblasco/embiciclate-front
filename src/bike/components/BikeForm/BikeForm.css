@@ -1,0 +1,41 @@
+.form-container {
+  box-shadow: 0px 0px 15px 0px;
+  width: 400px;
+  margin: 1rem;
+}
+
+.bike-form {
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: var(--secondary-color);
+
+  & input {
+    border-radius: 6px;
+    padding: 5px 10px;
+    height: 45px;
+    background-color: var(--third-color);
+  }
+
+  & textarea {
+    border-radius: 6px;
+    padding: 5px 10px;
+    background-color: var(--third-color);
+  }
+}
+
+.bike-form__form-group {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bike-form__button {
+  background-color: var(--info-color);
+  border-radius: 6px;
+  width: 150px;
+  padding: 10px 20px;
+}

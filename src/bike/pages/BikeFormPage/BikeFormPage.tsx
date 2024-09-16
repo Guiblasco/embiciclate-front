@@ -1,7 +1,12 @@
-import "./BikeFormPage.css";
+import BikeForm from "../../components/BikeForm/BikeForm";
 
 const BikesFormPage = (): React.ReactElement => {
-  return <h1 className="page-title">Crear una bici</h1>;
+  return (
+    <>
+      <h1 className="page-container__title">Crear una bici</h1>
+      <BikeForm />
+    </>
+  );
 };
 
 export default BikesFormPage;
