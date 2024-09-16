@@ -35,7 +35,7 @@ const BikesListPage = (): React.ReactElement => {
   }, [setIsLoading, loadBikes, bikeClient]);
 
   return (
-    <main className="page-container">
+    <>
       <h1 className="page-container__title">Lista de bicis</h1>
       {isLoading ? (
         <MoonLoader className="spinner" speedMultiplier={0.5} />
@@ -43,7 +43,7 @@ const BikesListPage = (): React.ReactElement => {
         <BikeList bikes={bikes} />
       )}
       {error ? <Toast /> : ""}
-    </main>
+    </>
   );
 };
 
