@@ -38,7 +38,7 @@ const BikeForm = (): React.ReactElement => {
           <textarea id="specs" required />
         </div>
         <button type="submit" className="bike-form__button">
-          Send
+          Crear
         </button>
       </form>
     </div>
