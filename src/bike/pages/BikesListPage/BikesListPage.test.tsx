@@ -15,7 +15,7 @@ describe("Given the BikesListPage component", () => {
       expect(bikesListPageTitle).toBeInTheDocument();
     });
   });
-  describe("When it  renders 2 bikes with brands 'Trek' and 'Cannondale'", () => {
+  describe("When it is rendered", () => {
     test("Then it should show 'Trek' and 'Cannondale' inside their headings", async () => {
       const trekBrandRegExp = new RegExp(/trek/i);
       const cannondaleBrandRegExp = new RegExp(/cannondale/i);
