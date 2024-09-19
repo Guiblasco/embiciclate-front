@@ -1,7 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Toast() {
+const Toast = (): React.ReactElement => {
   const notify = () => {
     toast.error("", {
       position: "top-center",
@@ -13,10 +13,9 @@ function Toast() {
       <button hidden={true} onClick={notify}>
         Notificame
       </button>
-
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default Toast;
