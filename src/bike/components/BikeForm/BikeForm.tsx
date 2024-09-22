@@ -1,41 +1,127 @@
-import React from "react";
+import React, { useState } from "react";
+import { BikeFormData } from "../../types";
 import "./BikeForm.css";
 
-const BikeForm = (): React.ReactElement => {
+interface BikeFormProps {
+  submitBike: (bikeFormData: BikeFormData) => void;
+}
+
+const bikeFormDataInitialState: BikeFormData = {
+  alternativeText: "",
+  brand: "",
+  imageUrl: "",
+  material: "",
+  mode: "",
+  model: "",
+  specs: "",
+  wheelSize: "",
+};
+
+const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
+  const [bikeFormData, setBikeFormData] = useState<BikeFormData>(
+    bikeFormDataInitialState,
+  );
+
+  const handleSubmit = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ): void => {
+    setBikeFormData((previuosBikeFormData) => ({
+      ...previuosBikeFormData,
+      [event.target.id]: event.target.value,
+    }));
+  };
+
   return (
     <div className="form-container">
-      <form className="bike-form">
+      <form
+        className="bike-form"
+        onSubmit={async (event) => {
+          event.preventDefault();
+
+          await submitBike(bikeFormData);
+
+          setBikeFormData(bikeFormDataInitialState);
+        }}
+      >
         <div className="bike-form__form-group">
-          <label htmlFor="marca">Marca:</label>
-          <input id="marca" required />
+          <label htmlFor="brand">Marca:</label>
+          <input
+            id="brand"
+            value={bikeFormData.brand}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
           <label htmlFor="model">Modelo:</label>
-          <input id="model" required />
+          <input
+            type="text"
+            id="model"
+            value={bikeFormData.model}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
           <label htmlFor="mode">Disciplina:</label>
-          <input type="text" id="mode" required />
+          <input
+            type="text"
+            id="mode"
+            value={bikeFormData.mode}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
           <label htmlFor="material">Material del cuadro:</label>
-          <input type="text" id="material" required />
+          <input
+            type="text"
+            id="material"
+            value={bikeFormData.material}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
-          <label htmlFor="wheel-size">Tamaño de rueda:</label>
-          <input id="wheel-size" required />
+          <label htmlFor="wheelSize">Tamaño de rueda:</label>
+          <input
+            type="text"
+            id="wheelSize"
+            value={bikeFormData.wheelSize}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
-          <label htmlFor="image-url">URL de la imagen:</label>
-          <input id="image-url" required />
+          <label htmlFor="imageUrl">URL de la imagen:</label>
+          <input
+            type="text"
+            id="imageUrl"
+            value={bikeFormData.imageUrl}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
-          <label htmlFor="alternative-text">Texto alternativo:</label>
-          <input id="alternative-text" required />
+          <label htmlFor="alternativeText">Texto alternativo:</label>
+          <input
+            type="text"
+            id="alternativeText"
+            value={bikeFormData.alternativeText}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <div className="bike-form__form-group">
           <label htmlFor="specs">Especificaciones:</label>
-          <textarea id="specs" required />
+          <textarea
+            id="specs"
+            value={bikeFormData.specs}
+            onChange={handleSubmit}
+            required
+          />
         </div>
         <button type="submit" className="bike-form__button">
           Crear

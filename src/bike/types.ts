@@ -1,8 +1,6 @@
-export interface Bike {
-  id: string;
+export interface BikeBase {
   brand: string;
   model: string;
-  wheelSize: number;
   material: string;
   specs: string;
   imageUrl: string;
@@ -10,6 +8,16 @@ export interface Bike {
   mode: string;
 }
 
-export interface BikeDto extends Bike {
+export interface BikeDto extends BikeBase {
   _id: string;
+  wheelSize: number;
+}
+
+export interface Bike extends BikeBase {
+  id: string;
+  wheelSize: number;
+}
+
+export interface BikeFormData extends BikeBase {
+  wheelSize: string;
 }
