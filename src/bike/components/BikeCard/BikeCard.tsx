@@ -13,6 +13,7 @@ const BikeCard = ({
     <article className="bike">
       <img
         className="bike__image"
+        loading="lazy"
         src={imageUrl}
         alt={alternativeText}
         width={330}

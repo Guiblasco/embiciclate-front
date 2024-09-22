@@ -1,7 +1,7 @@
 import React from "react";
 import "./NotFoundPage.css";
 
-export const NotFoundPage = (): React.ReactElement => {
+const NotFoundPage = (): React.ReactElement => {
   return (
     <div className="error-container">
       <h2 className="error-container__title">La página no existe</h2>
@@ -14,3 +14,5 @@ export const NotFoundPage = (): React.ReactElement => {
     </div>
   );
 };
+
+export default NotFoundPage;

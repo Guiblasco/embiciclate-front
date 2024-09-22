@@ -40,7 +40,7 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
         onSubmit={async (event) => {
           event.preventDefault();
 
-          await submitBike(bikeFormData);
+          submitBike(bikeFormData);
 
           setBikeFormData(bikeFormDataInitialState);
         }}
