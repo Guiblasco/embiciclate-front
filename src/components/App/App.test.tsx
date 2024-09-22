@@ -5,14 +5,14 @@ import router from "../../router/router";
 
 describe("Given the App component", () => {
   describe("When it is rendered", () => {
-    test("Then it should be show 'Lista de bicis' in a heading", () => {
-      const subtitleRegExp = new RegExp(/lista de bicis/, "i");
+    test("Then it should be show 'Lista de bicis' in a heading", async () => {
+      const titleRegExp = new RegExp(/lista de bicis/, "i");
 
       render(<RouterProvider router={router} />);
 
-      const subtitle = screen.getByRole("heading", { name: subtitleRegExp });
+      const title = await screen.findByRole("heading", { name: titleRegExp });
 
-      expect(subtitle).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
     });
   });
 
@@ -24,11 +24,11 @@ describe("Given the App component", () => {
 
       render(<RouterProvider router={router} />);
 
-      const addLink = screen.getByRole("link", { name: addRegExp });
+      const addLink = await screen.findByRole("link", { name: addRegExp });
 
       await user.click(addLink);
 
-      const bikeFormPage = screen.getByRole("heading", {
+      const bikeFormPage = await screen.findByRole("heading", {
         name: bikeFormPageRegExp,
       });
 
