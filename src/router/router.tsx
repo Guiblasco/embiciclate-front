@@ -5,17 +5,38 @@ import {
   Route,
 } from "react-router-dom";
 import App from "../components/App/App";
-import { NotFoundPage } from "../pages/NotFoundPage";
-import BikesListPage from "../bike/pages/BikesListPage/BikesListPage.js";
-import BikesFormPage from "../bike/pages/BikeFormPage/BikeFormPage.js";
+import { Suspense } from "react";
+import { NotFoundPage, BikesListPage, BikesFormPage } from "./lazyImports.js";
+import { MoonLoader } from "react-spinners";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Navigate to="/bikes" />} />
-      <Route path="bikes" element={<BikesListPage />} />
-      <Route path="add" element={<BikesFormPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route
+        path="bikes"
+        element={
+          <Suspense fallback={<MoonLoader />}>
+            <BikesListPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="add"
+        element={
+          <Suspense fallback={<MoonLoader />}>
+            <BikesFormPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={<MoonLoader />}>
+            <NotFoundPage />
+          </Suspense>
+        }
+      />
     </Route>,
   ),
 );
