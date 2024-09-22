@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from "react";
-import "./BikesListPage.css";
 import { BikeClient } from "../../api/BikesClient";
 import BikeList from "../../components/BikeList/BikeList";
 import useAppStore from "../../../store/useAppStore";
 import MoonLoader from "react-spinners/MoonLoader";
 import { toast } from "react-toastify";
 import Toast from "../../../components/Toasts/Toast";
+import "./BikesListPage.css";
 
 const BikesListPage = (): React.ReactElement => {
   const bikeClient = useMemo(() => new BikeClient(), []);
