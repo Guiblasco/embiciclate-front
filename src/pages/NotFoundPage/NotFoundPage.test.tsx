@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { NotFoundPage } from "./NotFoundPage";
+import NotFoundPage from "./NotFoundPage";
 
 describe("Given the NotFoundPage component", () => {
   describe("When it is rendered", () => {
