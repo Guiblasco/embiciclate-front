@@ -1,6 +1,6 @@
 .bike-list {
   align-items: center;
-  width: 100%;
+  min-width: 320px;
   padding: 20px 30px;
   display: flex;
   gap: 30px;
@@ -8,5 +8,5 @@
 }
 
 .bike-list__item {
-  min-width: 400px;
+  min-width: 320px;
 }

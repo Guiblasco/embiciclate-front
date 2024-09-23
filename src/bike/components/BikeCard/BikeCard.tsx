@@ -20,8 +20,8 @@ const BikeCard = ({
         height={185}
       />
       <h2 className="bike__information">
-        <span className="bike__brand">{brand} |</span>
-        <span className="bike__model">{model} |</span>
+        <span className="bike__brand">{brand}</span>
+        <span className="bike__model">{model}</span>
         <span className="bike__mode">{mode}</span>
       </h2>
     </article>

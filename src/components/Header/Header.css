@@ -4,12 +4,12 @@
   align-items: center;
   background-color: var(--secondary-color);
   border-radius: 0 0 40px 40px;
-  min-width: 100%;
-  height: 145px;
+  min-width: 320px;
+  height: 135px;
 }
 
 .main-title {
   margin: 1.5rem 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
 }
