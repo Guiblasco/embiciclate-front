@@ -92,7 +92,8 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
         <div className="bike-form__form-group">
           <label htmlFor="wheelSize">Tamaño de rueda:</label>
           <input
-            type="text"
+            placeholder="29 XC | 28 Carretera"
+            type="number"
             id="wheelSize"
             value={bikeFormData.wheelSize}
             onChange={handleSubmit}
@@ -102,7 +103,7 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
         <div className="bike-form__form-group">
           <label htmlFor="imageUrl">URL de la imagen:</label>
           <input
-            type="text"
+            type="url"
             id="imageUrl"
             value={bikeFormData.imageUrl}
             onChange={handleSubmit}
