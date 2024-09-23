@@ -67,4 +67,16 @@ describe("Given the BikeCard component", () => {
       expect(bikeMode).toBeInTheDocument();
     });
   });
+
+  describe("When it receives a bike", () => {
+    test("Then it should show a button with the name 'borrar bici'", () => {
+      const butonName = /borrar bici/i;
+
+      render(<BikeCard bike={bike} />);
+
+      const button = screen.getByRole("button", { name: butonName });
+
+      expect(button).toBeVisible();
+    });
+  });
 });
