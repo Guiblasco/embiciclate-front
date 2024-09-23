@@ -1,12 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import BikesListPage from "./BikesListPage";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the BikesListPage component", () => {
   describe("When it is rendered", () => {
     test("Then it should show 'Lista de bicis' in a heading", () => {
       const bikesListPageRegExp = new RegExp(/lista de bicis/, "i");
 
-      render(<BikesListPage />);
+      render(
+        <MemoryRouter>
+          <BikesListPage />
+        </MemoryRouter>,
+      );
 
       const bikesListPageTitle = screen.getByRole("heading", {
         name: bikesListPageRegExp,

@@ -20,6 +20,7 @@ const bikeFormDataInitialState: BikeFormData = {
 
 const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
   const navigate = useNavigate();
+
   const [bikeFormData, setBikeFormData] = useState<BikeFormData>(
     bikeFormDataInitialState,
   );
@@ -45,6 +46,7 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
           submitBike(bikeFormData);
 
           setBikeFormData(bikeFormDataInitialState);
+
           navigate("/bikes");
         }}
       >
