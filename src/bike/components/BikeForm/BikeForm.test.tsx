@@ -11,22 +11,16 @@ describe("Given the BikeForm component", () => {
   const specsLabelRegExp = new RegExp(/especificaciones/i);
 
   describe("When it is rendered", () => {
-    test("Then it showld show 'Marca:', 'Tamaño de rueda:' and 'Especificaciones:' as a laber for a text box", () => {
+    test("Then it showld show 'Marca:', 'Tamaño de rueda:' and 'Especificaciones:' as a label for a text box", () => {
       render(
         <MemoryRouter>
           <BikeForm submitBike={submitBikeMock} />
         </MemoryRouter>,
       );
 
-      const brandLabel = screen.getByRole("textbox", {
-        name: brandLabelRegExp,
-      });
-      const wheelSizeLabel = screen.getByRole("textbox", {
-        name: wheelSizeLabelRegExp,
-      });
-      const specsLabel = screen.getByRole("textbox", {
-        name: specsLabelRegExp,
-      });
+      const brandLabel = screen.getByLabelText(brandLabelRegExp);
+      const wheelSizeLabel = screen.getByLabelText(wheelSizeLabelRegExp);
+      const specsLabel = screen.getByLabelText(specsLabelRegExp);
 
       expect(brandLabel).toBeInTheDocument();
       expect(wheelSizeLabel).toBeInTheDocument();
@@ -43,7 +37,7 @@ describe("Given the BikeForm component", () => {
       );
       const buttonText = screen.getByRole("button", { name: buttonTextRegExp });
 
-      expect(buttonText).toBeInTheDocument();
+      expect(buttonText).toBeVisible();
     });
   });
 
@@ -88,7 +82,7 @@ describe("Given the BikeForm component", () => {
 
       await user.type(wheelSizeField, "29");
 
-      expect(wheelSizeField).toHaveValue("29");
+      expect(wheelSizeField).toHaveValue(29);
     });
   });
 });
