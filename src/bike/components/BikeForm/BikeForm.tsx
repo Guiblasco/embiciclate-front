@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BikeFormData } from "../../types";
 import "./BikeForm.css";
+import { useNavigate } from "react-router-dom";
 
 interface BikeFormProps {
   submitBike: (bikeFormData: BikeFormData) => void;
@@ -18,6 +19,8 @@ const bikeFormDataInitialState: BikeFormData = {
 };
 
 const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
+  const navigate = useNavigate();
+
   const [bikeFormData, setBikeFormData] = useState<BikeFormData>(
     bikeFormDataInitialState,
   );
@@ -43,6 +46,8 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
           submitBike(bikeFormData);
 
           setBikeFormData(bikeFormDataInitialState);
+
+          navigate("/bikes");
         }}
       >
         <div className="bike-form__form-group">
