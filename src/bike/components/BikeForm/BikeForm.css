@@ -1,6 +1,6 @@
 .form-container {
   box-shadow: 0px 0px 15px 0px;
-  width: 400px;
+  min-width: 320px;
   margin: 1rem;
 }
 
