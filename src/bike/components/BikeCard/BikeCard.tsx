@@ -1,4 +1,6 @@
 import React from "react";
+import { BsTrash } from "react-icons/bs";
+
 import { Bike } from "../../types";
 import "./bikeCard.css";
 
@@ -23,6 +25,9 @@ const BikeCard = ({
         <span className="bike__brand">{brand}</span>
         <span className="bike__model">{model}</span>
         <span className="bike__mode">{mode}</span>
+        <button className="bike__button" aria-label="borrar bici">
+          <BsTrash />
+        </button>
       </h2>
     </article>
   );
