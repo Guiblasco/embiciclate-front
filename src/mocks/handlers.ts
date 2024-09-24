@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { Bike } from "../bike/types";
+import trekBikeMock from "./bikesMock";
 
 export const handlers = [
   http.get(`${import.meta.env.VITE_API_URL}bikes`, () => {
@@ -33,5 +34,14 @@ export const handlers = [
         },
       ],
     });
+  }),
+
+  http.post(`${import.meta.env.VITE_API_URL}bikes`, () => {
+    return HttpResponse.json<{ bikes: Bike }>(
+      {
+        bikes: trekBikeMock,
+      },
+      { status: 201 },
+    );
   }),
 ];
