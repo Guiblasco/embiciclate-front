@@ -3,9 +3,8 @@ import { BikeClient } from "../../api/BikesClient";
 import BikeList from "../../components/BikeList/BikeList";
 import useAppStore from "../../../store/useAppStore";
 import MoonLoader from "react-spinners/MoonLoader";
-import { toast } from "react-toastify";
-import Toast from "../../../components/Toasts/Toast";
 import "./BikesListPage.css";
+import { createBikeError } from "../../../components/Toasts/createBike/notifyCreateBike";
 
 const BikesListPage = (): React.ReactElement => {
   const bikeClient = useMemo(() => new BikeClient(), []);
@@ -26,7 +25,9 @@ const BikesListPage = (): React.ReactElement => {
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
-        toast.error("No ha sido posible cargar las bicis");
+
+        createBikeError();
+
         throw error;
       }
     };
@@ -42,7 +43,7 @@ const BikesListPage = (): React.ReactElement => {
       ) : (
         <BikeList bikes={bikes} />
       )}
-      {error ? <Toast /> : ""}
+      {error ? createBikeError : ""}
     </>
   );
 };
