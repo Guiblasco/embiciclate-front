@@ -13,8 +13,7 @@ const BikesFormPage = (): React.ReactElement => {
       await bikeClient.createBike(bikeForm);
       createBikeSuccess();
     } catch (error) {
-      createBikeError();
-      throw error;
+      createBikeError(error as Error);
     }
   };
   return (

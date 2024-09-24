@@ -12,9 +12,9 @@ import { MoonLoader } from "react-spinners";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index element={<Navigate to="/bikes" />} />
+      <Route index element={<Navigate to="/bicis" />} />
       <Route
-        path="bikes"
+        path="bicis"
         element={
           <Suspense fallback={<MoonLoader />}>
             <BikesListPage />
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
         }
       />
       <Route
-        path="add"
+        path="añadir"
         element={
           <Suspense fallback={<MoonLoader />}>
             <BikesFormPage />

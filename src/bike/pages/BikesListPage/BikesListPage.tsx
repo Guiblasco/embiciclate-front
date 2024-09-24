@@ -5,6 +5,7 @@ import useAppStore from "../../../store/useAppStore";
 import MoonLoader from "react-spinners/MoonLoader";
 import "./BikesListPage.css";
 import { createBikeError } from "../../../components/Toasts/createBike/notifyCreateBike";
+import { ToastContainer } from "react-toastify";
 
 const BikesListPage = (): React.ReactElement => {
   const bikeClient = useMemo(() => new BikeClient(), []);
@@ -26,7 +27,7 @@ const BikesListPage = (): React.ReactElement => {
       } catch (error) {
         setIsLoading(false);
 
-        createBikeError();
+        createBikeError(error as Error);
 
         throw error;
       }
@@ -43,7 +44,7 @@ const BikesListPage = (): React.ReactElement => {
       ) : (
         <BikeList bikes={bikes} />
       )}
-      {error ? createBikeError : ""}
+      {error ? <ToastContainer /> : ""}
     </>
   );
 };

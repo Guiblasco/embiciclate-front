@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
-export const createBikeError = () => {
-  toast.error(`Ha ocurrido un error al crear la bici`, {
+export const createBikeError = (error: Error) => {
+  toast.error(`Ha ocurrido un error al crear la bici: ${error.message}`, {
     position: "bottom-center",
     theme: "colored",
     autoClose: 5000,
@@ -15,7 +15,7 @@ export const createBikeError = () => {
 };
 
 export const createBikeSuccess = () => {
-  toast.success("Éxito al crear la bici!", {
+  toast.success(`Éxito al crear la bici!`, {
     position: "bottom-center",
     theme: "colored",
     autoClose: 5000,
