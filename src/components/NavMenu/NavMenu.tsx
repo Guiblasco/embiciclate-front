@@ -8,7 +8,7 @@ const NavMenu = (): React.ReactElement => {
       <ul className="navigation-links">
         <li>
           <NavLink
-            to="/bikes"
+            to="/bicis"
             className={({ isActive }) =>
               `navigation-links__link ${isActive ? "navigation-links__link--active" : ""}`
             }
@@ -18,7 +18,7 @@ const NavMenu = (): React.ReactElement => {
         </li>
         <li>
           <NavLink
-            to="/add"
+            to="/añadir"
             className={({ isActive }) =>
               `navigation-links__link ${isActive ? "navigation-links__link--active" : ""}`
             }
