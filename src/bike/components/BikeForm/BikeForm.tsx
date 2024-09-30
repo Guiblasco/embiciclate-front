@@ -47,7 +47,7 @@ const BikeForm = ({ submitBike }: BikeFormProps): React.ReactElement => {
 
           setBikeFormData(bikeFormDataInitialState);
 
-          await navigate("/bicis");
+          navigate("/bicis");
         }}
       >
         <div className="bike-form__form-group">
