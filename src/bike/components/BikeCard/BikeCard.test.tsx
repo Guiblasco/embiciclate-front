@@ -3,6 +3,7 @@ import { Bike } from "../../types";
 import BikeCard from "./BikeCard";
 
 describe("Given the BikeCard component", () => {
+  const deleteBike = vi.fn();
   const bike: Bike = {
     id: "",
     brand: "Canyon",
@@ -19,7 +20,7 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's brand 'Canyon' as a text", () => {
       const bikeBrandRegExp = new RegExp(bike.brand, "i");
 
-      render(<BikeCard bike={bike} />);
+      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
 
       const bikeBrand = screen.getByText(bikeBrandRegExp);
 
@@ -31,7 +32,7 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's model 'Ultimate CF SL 8' as a text", () => {
       const bikeModelRegExp = new RegExp(bike.model, "i");
 
-      render(<BikeCard bike={bike} />);
+      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
 
       const bikeModel = screen.getByText(bikeModelRegExp);
 
@@ -46,7 +47,7 @@ describe("Given the BikeCard component", () => {
         "i",
       );
 
-      render(<BikeCard bike={bike} />);
+      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
 
       const bikeAlternativeText = screen.getByAltText(
         bikeImageAlternativeTextRegExp,
@@ -60,7 +61,7 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's mode 'Carretera' as a text", () => {
       const bikeModeRegExp = new RegExp(bike.mode, "i");
 
-      render(<BikeCard bike={bike} />);
+      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
 
       const bikeMode = screen.getByText(bikeModeRegExp);
 
@@ -72,7 +73,7 @@ describe("Given the BikeCard component", () => {
     test("Then it should show a button with the name 'borrar bici'", () => {
       const butonName = /borrar bici/i;
 
-      render(<BikeCard bike={bike} />);
+      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
 
       const button = screen.getByRole("button", { name: butonName });
 
