@@ -3,14 +3,19 @@ import { BikeClient } from "../../api/BikesClient";
 import BikeList from "../../components/BikeList/BikeList";
 import useAppStore from "../../../store/useAppStore";
 import MoonLoader from "react-spinners/MoonLoader";
-import "./BikesListPage.css";
 import { createBikeError } from "../../../components/Toasts/createBike/notifyCreateBike";
 import { ToastContainer } from "react-toastify";
+import {
+  deleteBikeError,
+  deleteBikeSuccess,
+} from "../../../components/Toasts/deleteBike/notifyDeleteBike";
+import "./BikesListPage.css";
 
 const BikesListPage = (): React.ReactElement => {
   const bikeClient = useMemo(() => new BikeClient(), []);
 
-  const { bikes, loadBikes, isLoading, setIsLoading } = useAppStore();
+  const { bikes, loadBikes, isLoading, setIsLoading, deleteBikeFromStore } =
+    useAppStore();
 
   const error = new Error(`No ha sido posible cargar las bicis`);
 
@@ -36,13 +41,29 @@ const BikesListPage = (): React.ReactElement => {
     fetchbikes();
   }, [setIsLoading, loadBikes, bikeClient]);
 
+  const handleDeleteBike = async (bikeId: string) => {
+    setIsLoading(true);
+
+    try {
+      await bikeClient.deleteBikeById(bikeId);
+
+      deleteBikeFromStore(bikeId);
+
+      deleteBikeSuccess();
+    } catch (error) {
+      deleteBikeError(error as Error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <h1 className="page-container__title">Lista de bicis</h1>
       {isLoading ? (
         <MoonLoader className="spinner" speedMultiplier={0.5} />
       ) : (
-        <BikeList bikes={bikes} />
+        <BikeList bikes={bikes} onDelete={handleDeleteBike} />
       )}
       {error ? <ToastContainer /> : ""}
     </>
