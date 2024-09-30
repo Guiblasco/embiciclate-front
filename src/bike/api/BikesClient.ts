@@ -22,7 +22,7 @@ export class BikeClient implements BikeClientStructure {
   async createBike(bikeFormData: BikeFormData): Promise<Omit<Bike, "id">> {
     const bikeToCreate = convertBikeFormDataToBike(bikeFormData);
 
-    const request = await fetch(`${import.meta.env.VITE_API_URL}bikes`, {
+    const apiResponse = await fetch(`${import.meta.env.VITE_API_URL}bikes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,11 +30,30 @@ export class BikeClient implements BikeClientStructure {
       body: JSON.stringify(bikeToCreate),
     });
 
-    if (!request.ok) {
+    if (!apiResponse.ok) {
       throw new Error("An error occurred while sending the bike");
     }
-    const createdBike = (await request.json()) as Omit<Bike, "id">;
+    const createdBike = (await apiResponse.json()) as Omit<Bike, "id">;
 
     return createdBike;
+  }
+
+  async deleteBikeById(bikeId: string): Promise<Bike> {
+    const apiResponse = await fetch(
+      `${import.meta.env.VITE_API_URL}bikes/${bikeId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    if (!apiResponse.ok) {
+      throw new Error("An error occurred while deleting the bike");
+    }
+    const deletedBike = (await apiResponse.json()) as Bike;
+
+    return deletedBike;
   }
 }
