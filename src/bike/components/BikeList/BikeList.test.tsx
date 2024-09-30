@@ -3,6 +3,7 @@ import { Bike } from "../../types";
 import BikeList from "./BikeList";
 
 describe("Given the BikeList component", () => {
+  const onDelete = vi.fn();
   const bikes: Bike[] = [
     {
       id: "1",
@@ -32,7 +33,7 @@ describe("Given the BikeList component", () => {
       const trekBrandRegExp = new RegExp(/trek/i);
       const canondaleBrandRegExp = new RegExp(/canondale/i);
 
-      render(<BikeList bikes={bikes} />);
+      render(<BikeList bikes={bikes} onDelete={onDelete} />);
 
       const trekBrand = screen.getByRole("heading", {
         name: trekBrandRegExp,
@@ -50,7 +51,7 @@ describe("Given the BikeList component", () => {
       const madoneModelRegExp = new RegExp(/Madone sl 6/i);
       const scalpelModelRegExp = new RegExp(/Scalpel/i);
 
-      render(<BikeList bikes={bikes} />);
+      render(<BikeList bikes={bikes} onDelete={onDelete} />);
 
       const madoneModel = screen.getByRole("heading", {
         name: madoneModelRegExp,
@@ -69,7 +70,7 @@ describe("Given the BikeList component", () => {
       const carreteraModeRegExp = new RegExp(/carretera/i);
       const mountainModeRegExp = new RegExp(/xc/i);
 
-      render(<BikeList bikes={bikes} />);
+      render(<BikeList bikes={bikes} onDelete={onDelete} />);
 
       const carreteraMode = screen.getByRole("heading", {
         name: carreteraModeRegExp,
