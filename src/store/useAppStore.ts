@@ -7,6 +7,7 @@ interface AppStoreStructure {
   bikes: Bike[];
   loadBikes: (bikes: Bike[]) => void;
   deleteBikeFromStore: (bikeId: string) => void;
+  addBikeToStore: (newBike: Bike) => void;
 }
 
 const useAppStore = create<AppStoreStructure>((set) => ({
@@ -26,6 +27,12 @@ const useAppStore = create<AppStoreStructure>((set) => ({
   deleteBikeFromStore: (bikeId: string) => {
     set((state) => ({
       bikes: state.bikes.filter((bike) => bike.id !== bikeId),
+    }));
+  },
+
+  addBikeToStore: (newBike: Bike) => {
+    set((state) => ({
+      bikes: [...state.bikes, newBike],
     }));
   },
 }));
