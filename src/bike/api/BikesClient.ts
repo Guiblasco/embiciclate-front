@@ -19,7 +19,7 @@ export class BikeClient implements BikeClientStructure {
     return bikes;
   }
 
-  async createBike(bikeFormData: BikeFormData): Promise<Omit<Bike, "id">> {
+  async createBike(bikeFormData: BikeFormData): Promise<Bike> {
     const bikeToCreate = convertBikeFormDataToBike(bikeFormData);
 
     const apiResponse = await fetch(`${import.meta.env.VITE_API_URL}bikes`, {
@@ -33,9 +33,15 @@ export class BikeClient implements BikeClientStructure {
     if (!apiResponse.ok) {
       throw new Error("An error occurred while sending the bike");
     }
-    const createdBike = (await apiResponse.json()) as Omit<Bike, "id">;
+    const apiCreatedBike = (await apiResponse.json()) as BikeDto;
 
-    return createdBike;
+    const newBike = {
+      ...apiCreatedBike,
+      id: apiCreatedBike._id,
+    };
+    console.log(apiCreatedBike);
+
+    return newBike;
   }
 
   async deleteBikeById(bikeId: string): Promise<Bike> {
