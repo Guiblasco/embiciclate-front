@@ -1,0 +1,43 @@
+.bike-detail {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  text-align: start;
+  gap: 12px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+.bike-detail__info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.bike-detail__image {
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+
+.bike-detail__data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.data-label {
+  color: var(--main-color);
+}
+
+.data {
+  color: var(--third-color);
+  padding: 10px 0;
+  font-size: 1.3rem;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
