@@ -39,7 +39,6 @@ export class BikeClient implements BikeClientStructure {
       ...apiCreatedBike,
       id: apiCreatedBike._id,
     };
-    console.log(apiCreatedBike);
 
     return newBike;
   }
@@ -61,5 +60,25 @@ export class BikeClient implements BikeClientStructure {
     const deletedBike = (await apiResponse.json()) as Bike;
 
     return deletedBike;
+  }
+
+  async getBikeById(bikeId: string): Promise<Bike> {
+    const apiResponse = await fetch(
+      `${import.meta.env.VITE_API_URL}bikes/${bikeId}`,
+    );
+
+    if (!apiResponse.ok) {
+      throw new Error("An error occurred while getting the bike");
+    }
+
+    const { bikeToShow } = (await apiResponse.json()) as {
+      bikeToShow: BikeDto;
+    };
+
+    const bike = {
+      ...bikeToShow,
+      id: bikeToShow._id,
+    };
+    return bike;
   }
 }
