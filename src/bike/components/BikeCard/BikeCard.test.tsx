@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Bike } from "../../types";
 import BikeCard from "./BikeCard";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the BikeCard component", () => {
   const deleteBike = vi.fn();
@@ -20,7 +21,11 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's brand 'Canyon' as a text", () => {
       const bikeBrandRegExp = new RegExp(bike.brand, "i");
 
-      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
+      render(
+        <MemoryRouter>
+          <BikeCard bike={bike} deleteBike={deleteBike} />
+        </MemoryRouter>,
+      );
 
       const bikeBrand = screen.getByText(bikeBrandRegExp);
 
@@ -32,7 +37,11 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's model 'Ultimate CF SL 8' as a text", () => {
       const bikeModelRegExp = new RegExp(bike.model, "i");
 
-      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
+      render(
+        <MemoryRouter>
+          <BikeCard bike={bike} deleteBike={deleteBike} />
+        </MemoryRouter>,
+      );
 
       const bikeModel = screen.getByText(bikeModelRegExp);
 
@@ -47,8 +56,11 @@ describe("Given the BikeCard component", () => {
         "i",
       );
 
-      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
-
+      render(
+        <MemoryRouter>
+          <BikeCard bike={bike} deleteBike={deleteBike} />
+        </MemoryRouter>,
+      );
       const bikeAlternativeText = screen.getByAltText(
         bikeImageAlternativeTextRegExp,
       );
@@ -61,8 +73,11 @@ describe("Given the BikeCard component", () => {
     test("Then it should show bike's mode 'Carretera' as a text", () => {
       const bikeModeRegExp = new RegExp(bike.mode, "i");
 
-      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
-
+      render(
+        <MemoryRouter>
+          <BikeCard bike={bike} deleteBike={deleteBike} />
+        </MemoryRouter>,
+      );
       const bikeMode = screen.getByText(bikeModeRegExp);
 
       expect(bikeMode).toBeInTheDocument();
@@ -73,8 +88,11 @@ describe("Given the BikeCard component", () => {
     test("Then it should show a button with the name 'borrar bici'", () => {
       const butonName = /borrar bici/i;
 
-      render(<BikeCard bike={bike} deleteBike={deleteBike} />);
-
+      render(
+        <MemoryRouter>
+          <BikeCard bike={bike} deleteBike={deleteBike} />
+        </MemoryRouter>,
+      );
       const button = screen.getByRole("button", { name: butonName });
 
       expect(button).toBeVisible();
