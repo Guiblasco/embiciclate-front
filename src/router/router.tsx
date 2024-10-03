@@ -8,6 +8,7 @@ import App from "../components/App/App";
 import { Suspense } from "react";
 import { NotFoundPage, BikesListPage, BikesFormPage } from "./lazyImports.js";
 import { MoonLoader } from "react-spinners";
+import BikeDetailPage from "../bike/pages/BikeDetailPage/BikeDetailPage.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,14 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<MoonLoader />}>
             <NotFoundPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="bicis/:bikeId"
+        element={
+          <Suspense fallback={<MoonLoader />}>
+            <BikeDetailPage />
           </Suspense>
         }
       />
