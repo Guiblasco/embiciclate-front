@@ -6,9 +6,13 @@ import {
 } from "react-router-dom";
 import App from "../components/App/App";
 import { Suspense } from "react";
-import { NotFoundPage, BikesListPage, BikesFormPage } from "./lazyImports.js";
+import {
+  NotFoundPage,
+  BikesListPage,
+  BikesFormPage,
+  BikeDetailPage,
+} from "./lazyImports.js";
 import { MoonLoader } from "react-spinners";
-import BikeDetailPage from "../bike/pages/BikeDetailPage/BikeDetailPage.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
