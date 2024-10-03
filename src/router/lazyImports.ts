@@ -11,3 +11,7 @@ export const BikesListPage = lazy(
 export const BikesFormPage = lazy(
   () => import("../bike/pages/BikeFormPage/BikeFormPage"),
 );
+
+export const BikeDetailPage = lazy(
+  () => import("../bike/pages/BikeDetailPage/BikeDetailPage"),
+);
