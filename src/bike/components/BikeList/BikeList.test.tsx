@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Bike } from "../../types";
 import BikeList from "./BikeList";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the BikeList component", () => {
   const onDelete = vi.fn();
@@ -32,8 +33,14 @@ describe("Given the BikeList component", () => {
     test("Then it should show the bike's brand inside a heading", () => {
       const trekBrandRegExp = new RegExp(/trek/i);
       const canondaleBrandRegExp = new RegExp(/canondale/i);
-
-      render(<BikeList bikes={bikes} onDelete={onDelete} />);
+      <MemoryRouter>
+        <BikeList bikes={bikes} onDelete={onDelete} />
+      </MemoryRouter>;
+      render(
+        <MemoryRouter>
+          <BikeList bikes={bikes} onDelete={onDelete} />
+        </MemoryRouter>,
+      );
 
       const trekBrand = screen.getByRole("heading", {
         name: trekBrandRegExp,
@@ -51,8 +58,11 @@ describe("Given the BikeList component", () => {
       const madoneModelRegExp = new RegExp(/Madone sl 6/i);
       const scalpelModelRegExp = new RegExp(/Scalpel/i);
 
-      render(<BikeList bikes={bikes} onDelete={onDelete} />);
-
+      render(
+        <MemoryRouter>
+          <BikeList bikes={bikes} onDelete={onDelete} />
+        </MemoryRouter>,
+      );
       const madoneModel = screen.getByRole("heading", {
         name: madoneModelRegExp,
       });
@@ -70,8 +80,11 @@ describe("Given the BikeList component", () => {
       const carreteraModeRegExp = new RegExp(/carretera/i);
       const mountainModeRegExp = new RegExp(/xc/i);
 
-      render(<BikeList bikes={bikes} onDelete={onDelete} />);
-
+      render(
+        <MemoryRouter>
+          <BikeList bikes={bikes} onDelete={onDelete} />
+        </MemoryRouter>,
+      );
       const carreteraMode = screen.getByRole("heading", {
         name: carreteraModeRegExp,
       });

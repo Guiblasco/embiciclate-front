@@ -4,7 +4,6 @@ import BikeList from "../../components/BikeList/BikeList";
 import useAppStore from "../../../store/useAppStore";
 import MoonLoader from "react-spinners/MoonLoader";
 import { createBikeError } from "../../../components/Toasts/createBike/notifyCreateBike";
-import { ToastContainer } from "react-toastify";
 import {
   deleteBikeError,
   deleteBikeSuccess,
@@ -16,8 +15,6 @@ const BikesListPage = (): React.ReactElement => {
 
   const { bikes, loadBikes, isLoading, setIsLoading, deleteBikeFromStore } =
     useAppStore();
-
-  const error = new Error(`No ha sido posible cargar las bicis`);
 
   useEffect(() => {
     const fetchbikes = async () => {
@@ -33,8 +30,6 @@ const BikesListPage = (): React.ReactElement => {
         setIsLoading(false);
 
         createBikeError(error as Error);
-
-        throw error;
       }
     };
 
@@ -65,7 +60,6 @@ const BikesListPage = (): React.ReactElement => {
       ) : (
         <BikeList bikes={bikes} onDelete={handleDeleteBike} />
       )}
-      {error ? <ToastContainer /> : ""}
     </>
   );
 };

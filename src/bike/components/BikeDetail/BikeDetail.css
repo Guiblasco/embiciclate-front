@@ -33,7 +33,7 @@
 }
 
 .data {
-  color: var(--third-color);
+  color: var(--main-color);
   padding: 10px 0;
   font-size: 1.3rem;
 
