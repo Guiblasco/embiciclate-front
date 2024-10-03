@@ -5,9 +5,11 @@ interface AppStoreStructure {
   isLoading: boolean;
   setIsLoading: (load: boolean) => void;
   bikes: Bike[];
+  currentBike: Bike;
   loadBikes: (bikes: Bike[]) => void;
   deleteBikeFromStore: (bikeId: string) => void;
   addBikeToStore: (newBike: Bike) => void;
+  loadCurrentBike: (bike: Bike) => void;
 }
 
 const useAppStore = create<AppStoreStructure>((set) => ({
@@ -18,12 +20,12 @@ const useAppStore = create<AppStoreStructure>((set) => ({
     })),
 
   bikes: [],
+  currentBike: {} as Bike,
   loadBikes: (bikes: Bike[]) =>
     set((state) => ({
       ...state,
       bikes,
     })),
-
   deleteBikeFromStore: (bikeId: string) => {
     set((state) => ({
       bikes: state.bikes.filter((bike) => bike.id !== bikeId),
@@ -33,6 +35,11 @@ const useAppStore = create<AppStoreStructure>((set) => ({
   addBikeToStore: (newBike: Bike) => {
     set((state) => ({
       bikes: [...state.bikes, newBike],
+    }));
+  },
+  loadCurrentBike: (bike: Bike) => {
+    set(() => ({
+      currentBike: { ...bike },
     }));
   },
 }));
