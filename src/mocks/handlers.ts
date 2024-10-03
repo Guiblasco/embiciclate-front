@@ -44,4 +44,28 @@ export const handlers = [
       { status: 201 },
     );
   }),
+
+  http.delete(`${import.meta.env.VITE_API_URL}bikes/:bikeId`, () => {
+    return HttpResponse.json<{ message: string }>(
+      {
+        message: "Error",
+      },
+      {
+        status: 200,
+      },
+    );
+  }),
+];
+
+export const errorHandlers = [
+  http.delete(`${import.meta.env.VITE_API_URL}bikes/:bikeId`, () => {
+    return HttpResponse.json<{ message: string }>(
+      {
+        message: "delete error",
+      },
+      {
+        status: 404,
+      },
+    );
+  }),
 ];
